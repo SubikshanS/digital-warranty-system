@@ -4,16 +4,6 @@ A clean, professional, and reliable decentralized application (dApp) built on th
 
 ---
 
-## 🎥 Video Demonstration
-
-Check out the full end-to-end lifecycle demonstration of the system:
-
-[![Watch Demo Video](https://img.shields.io/badge/▶%20Watch%20Demo-Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1g_cjfAMwvqf3Jq4ic6_tBMr120erWwkp/view?usp=drive_link)
-
-> 📹 **Project Walkthrough Video:** [Click here to watch the full project demonstration](https://drive.google.com/file/d/1g_cjfAMwvqf3Jq4ic6_tBMr120erWwkp/view?usp=drive_link)
-
----
-
 ## 🌟 Key Features & Workflow
 
 The system implements an end-to-end role-based lifecycle:
@@ -34,8 +24,6 @@ The system implements an end-to-end role-based lifecycle:
 - **Smart Contract Layer:** Solidity (`^0.8.20`), Solc compiler
 - **Network:** Sepolia Ethereum Testnet
 - **Version Control:** Git
-
-> 🚫 *No Vite, Node.js backend server, MongoDB/SQL databases, IPFS, or fake mock data used. The Solidity smart contract is the single source of truth.*
 
 ---
 
