@@ -4,6 +4,19 @@ A clean, professional, and reliable decentralized application (dApp) built on th
 
 ---
 
+## 🎥 Video Demonstration
+
+Check out the full end-to-end lifecycle demonstration of the system:
+
+<!-- Option 1: YouTube / Drive / Loom Link -->
+[![Watch Demo Video](https://img.shields.io/badge/▶%20Watch%20Demo-Video%20Walkthrough-red?style=for-the-badge&logo=youtube)](YOUR_VIDEO_LINK_HERE)
+
+> 📹 **Demo Video Link:** [Click here to watch the project demonstration](YOUR_VIDEO_LINK_HERE)
+
+*(Alternatively, you can place your video file in `assets/demo.mp4` to embed directly)*
+
+---
+
 ## 🌟 Key Features & Workflow
 
 The system implements an end-to-end role-based lifecycle:
