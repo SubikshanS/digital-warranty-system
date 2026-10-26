@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Architecture - Blockchain Digital Warranty System</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --bg-subtle: #f8fafc;
+      --border: #cbd5e1;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #ffffff;
+      padding: 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media print {
+      body { padding: 0; max-width: 100%; }
+      .no-print { display: none !important; }
+      .page-break { page-break-before: always; }
+      @page { margin: 1.5cm; }
+    }
+
+    .doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .doc-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .doc-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .doc-badge {
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1e1b4b;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #334155;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p, li {
+      font-size: 0.925rem;
+      color: #334155;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li { margin-bottom: 0.35rem; }
+
+    .script-box {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid var(--primary);
+      padding: 1.25rem;
+      border-radius: 6px;
+      font-style: italic;
+      margin: 1rem 0;
+    }
+
+    .diagram-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.875rem;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid #e2e8f0;
+      text-align: left;
+    }
+
+    td {
+      padding: 0.65rem 0.85rem;
+      border: 1px solid #e2e8f0;
+      color: #1e293b;
+    }
+
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    .code-chip {
+      font-family: 'Fira Code', monospace;
+      background: #f1f5f9;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.85em;
+      color: #4338ca;
+    }
+
+    .print-bar {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      cursor: pointer;
+      font-weight: 600;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 100;
+    }
+    .print-bar:hover { background: #1e293b; }
+  </style>
+</head>
+<body>
+
+  <button class="print-bar no-print" onclick="window.print()">
+    🖨️ Save as PDF / Print
+  </button>
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">System Architecture Specification</h1>
+      <p class="doc-subtitle">Blockchain-Based Digital Warranty Management System</p>
+    </div>
+    <span class="doc-badge">Sepolia Ethereum Testnet</span>
+  </header>
+
+  <section>
+    <h2>1. Executive Summary & Presentation Script</h2>
+    <div class="script-box">
+      "Our system follows a 4-tier decentralized application (dApp) architecture where the Ethereum blockchain acts as the single source of truth, completely eliminating centralized databases, IPFS nodes, or backend servers.<br><br>
+      The architecture connects four major layers: Presentation Layer (React.js), Web3 Abstraction Layer (Ethers.js v6 & MetaMask), Smart Contract Business Logic Layer (Solidity WarrantyManagement.sol), and Ledger Persistence Layer (Sepolia Ethereum Testnet)."
+    </div>
+  </section>
+
+  <section class="page-break">
+    <h2>2. High-Level Architecture Flowchart</h2>
+    <div class="diagram-card">
+      <pre class="mermaid">
+flowchart TD
+    subgraph ClientLayer ["1. Presentation Layer (React.js Frontend)"]
+        UI_Admin["Admin Portal"]
+        UI_Manuf["Manufacturer Portal"]
+        UI_Ret["Retailer Portal"]
+        UI_Cust["Customer Portal"]
+        UI_Serv["Service Center Portal"]
+        UI_Verify["Public Verification View"]
+    end
+
+    subgraph Web3Layer ["2. Web3 Abstraction Layer"]
+        MM["MetaMask Wallet (Signer)"]
+        Ethers["Ethers.js v6 Provider"]
+        TxModal["Transaction Modal (UX Feedback)"]
+    end
+
+    subgraph ContractLayer ["3. Smart Contract Layer (Solidity)"]
+        WM["WarrantyManagement.sol"]
+        
+        subgraph Modifiers ["Access Control Modifiers"]
+            onlyAdmin["onlyAdmin"]
+            onlyManuf["onlyManufacturer"]
+            onlyRet["onlyRetailer"]
+            onlyServ["onlyServiceCenter"]
+        end
+        
+        subgraph DataStructs ["On-Chain Data Structures"]
+            ProdStruct["Product Struct"]
+            WarrStruct["Warranty Struct"]
+            ClaimStruct["Claim Struct"]
+        end
+    end
+
+    subgraph LedgerLayer ["4. Persistence Layer"]
+        Sepolia["Sepolia Ethereum Testnet Nodes"]
+        Etherscan["Sepolia Etherscan Explorer"]
+    end
+
+    UI_Admin --> Ethers
+    UI_Manuf --> Ethers
+    UI_Ret --> Ethers
+    UI_Cust --> Ethers
+    UI_Serv --> Ethers
+    UI_Verify --> Ethers
+
+    Ethers <--> MM
+    Ethers --> TxModal
+
+    MM -- "Signed Tx (eth_sendTransaction)" --> WM
+    Ethers -- "Read Queries (eth_call)" --> WM
+
+    WM --> Modifiers
+    WM --> DataStructs
+    WM -- "State Changes & Events" --> Sepolia
+    Sepolia -. "Tx Status & Audit Logs" .-> Etherscan
+      </pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Layered Architectural Breakdown</h2>
+    
+    <h3>Layer 1: Presentation Layer (React.js)</h3>
+    <ul>
+      <li><strong>Role-Based Navigation:</strong> Renders custom portals for Admin, Manufacturer, Retailer, Customer, and Service Center based on connected wallet roles.</li>
+      <li><strong>State Management:</strong> Maintains live wallet status, network detection, and transaction modal states.</li>
+      <li><strong>UI Component Library:</strong> Custom CSS modular components (<span class="code-chip">StatusBadge</span>, <span class="code-chip">AlertMessage</span>, <span class="code-chip">TransactionModal</span>).</li>
+    </ul>
+
+    <h3>Layer 2: Web3 Abstraction Layer (Ethers.js v6 & MetaMask)</h3>
+    <ul>
+      <li><strong>Provider & Signer:</strong> Uses <span class="code-chip">BrowserProvider</span> for cryptographic transaction signing and public JSON-RPC fallbacks for read-only queries.</li>
+      <li><strong>Network Guard:</strong> Enforces Sepolia Testnet (Chain ID: <span class="code-chip">0xaa36a7</span> / <span class="code-chip">11155111</span>) and triggers automatic RPC network switching.</li>
+      <li><strong>Error Parsing:</strong> Maps raw EVM revert strings to human-readable error banners.</li>
+    </ul>
+
+    <h3>Layer 3: Smart Contract Business Logic (<span class="code-chip">WarrantyManagement.sol</span>)</h3>
+    <ul>
+      <li><strong>Role-Based Access Control (RBAC):</strong> Enforces strict access control via custom modifiers (<span class="code-chip">onlyAdmin</span>, <span class="code-chip">onlyManufacturer</span>, <span class="code-chip">onlyRetailer</span>, <span class="code-chip">onlyServiceCenter</span>).</li>
+      <li><strong>Dynamic Timestamp Calculation:</strong> Evaluates warranty expiration dynamically against block timestamps:
+        <br><span class="code-chip">Status = (block.timestamp &lt;= expiryDate) ? ACTIVE : EXPIRED</span>
+      </li>
+      <li><strong>Event Emmiters:</strong> Logs indexed events for auditability (<span class="code-chip">ProductRegistered</span>, <span class="code-chip">WarrantyCreated</span>, <span class="code-chip">ProductAssigned</span>, <span class="code-chip">ClaimCreated</span>, <span class="code-chip">ClaimStatusUpdated</span>).</li>
+    </ul>
+
+    <h3>Layer 4: Ledger Persistence Layer (Sepolia Testnet)</h3>
+    <ul>
+      <li><strong>Decentralized State Storage:</strong> Stores only essential structured data structs (<span class="code-chip">Product</span>, <span class="code-chip">Warranty</span>, <span class="code-chip">Claim</span>) to maintain zero traditional database dependencies.</li>
+    </ul>
+  </section>
+
+  <section class="page-break">
+    <h2>4. Role & Permission Matrix</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Authorize Orgs</th>
+          <th>Register Product</th>
+          <th>Issue Warranty</th>
+          <th>Transfer Ownership</th>
+          <th>File Claim</th>
+          <th>Update Claim Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Admin</strong></td>
+          <td>✅</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+        </tr>
+        <tr>
+          <td><strong>Manufacturer</strong></td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+        </tr>
+        <tr>
+          <td><strong>Retailer</strong></td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>❌</td>
+          <td>❌</td>
+        </tr>
+        <tr>
+          <td><strong>Customer</strong></td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+          <td>❌</td>
+        </tr>
+        <tr>
+          <td><strong>Service Center</strong></td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>❌</td>
+          <td>✅</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+</body>
+</html>
