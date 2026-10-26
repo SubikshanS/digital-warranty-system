@@ -1,10 +1,10 @@
-# Blockchain-Based Digital Warranty Management System 🛡️⚡
+# Blockchain-Based Digital Warranty Management System 
 
 A clean, professional, and reliable decentralized application (dApp) built on the **Ethereum Sepolia Testnet** for digital warranty management across the product lifecycle.
 
 ---
 
-## 🌟 Key Features & Workflow
+## Key Features & Workflow
 
 The system implements an end-to-end role-based lifecycle:
 
@@ -17,7 +17,7 @@ The system implements an end-to-end role-based lifecycle:
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Frontend:** React.js, CSS, Lucide Icons
 - **Blockchain Interactivity:** Ethers.js v6, MetaMask Extension
@@ -68,7 +68,7 @@ digital-warranty-system/
 
 ---
 
-## 🚀 How to Run & Deploy
+## How to Run & Deploy
 
 ### 1. Install Dependencies
 ```bash
@@ -103,7 +103,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser with MetaMas
 
 ---
 
-## 🎓 College Demonstration Guide
+## College Demonstration Guide
 
 1. **Connect Admin Wallet:** Connect the MetaMask wallet that deployed the contract. Open **Admin Portal** and authorize a secondary wallet address as **Manufacturer**, another as **Retailer**, and another as **Service Center**.
 2. **Switch to Manufacturer Wallet:** Open **Manufacturer Portal**. Register a new product (e.g. `PRD-1001`), then create a 365-day warranty for `PRD-1001`.
