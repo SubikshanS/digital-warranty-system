@@ -8,12 +8,9 @@ A clean, professional, and reliable decentralized application (dApp) built on th
 
 Check out the full end-to-end lifecycle demonstration of the system:
 
-<!-- Option 1: YouTube / Drive / Loom Link -->
-[![Watch Demo Video](https://img.shields.io/badge/▶%20Watch%20Demo-Video%20Walkthrough-red?style=for-the-badge&logo=youtube)](YOUR_VIDEO_LINK_HERE)
+[![Watch Demo Video](https://img.shields.io/badge/▶%20Watch%20Demo-Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1g_cjfAMwvqf3Jq4ic6_tBMr120erWwkp/view?usp=drive_link)
 
-> 📹 **Demo Video Link:** [Click here to watch the project demonstration](YOUR_VIDEO_LINK_HERE)
-
-*(Alternatively, you can place your video file in `assets/demo.mp4` to embed directly)*
+> 📹 **Project Walkthrough Video:** [Click here to watch the full project demonstration](https://drive.google.com/file/d/1g_cjfAMwvqf3Jq4ic6_tBMr120erWwkp/view?usp=drive_link)
 
 ---
 
